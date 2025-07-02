@@ -1,0 +1,33 @@
+
+//CRUD (R):
+
+use restaurant
+//syntax: db.<collection>.find()
+db.listingsAndReviews.find()
+
+//find a list of restaurant, specifically:
+//syntax: { 
+  <field>: <value> 
+}
+db.listingsAndReviews.find({ borough: "Brooklyn" });
+// find one more by:db.listingsAndReviews.find({ borough: "Brooklyn", cuisine: "Carribean" });
+
+//if embedded doc:
+//ex: address.
+db.listingsAndReviews.find({ "address.zipcode": "11231" });
+
+//$gt and $lt
+////ex: where resto_id greater than value
+db.listingsAndReviews.find({ restaurant_id: { $gt: "50000000" } });
+
+//ex: where the restaurant is located starts with the letter "C" or any alphanumeric character that comes before it.
+db.listingsAndReviews.find({ "address.street": { $lte: "C" } })
+
+//Sorting documents
+//ascending:
+db.listingsAndReviews.find({ cuisine: "Spanish" }).sort({ name: 1 });
+
+//desc:
+db.listingsAndReviews.find({ borough: "Queens" }).sort({ "address.zipcode": -1 });
+
+
