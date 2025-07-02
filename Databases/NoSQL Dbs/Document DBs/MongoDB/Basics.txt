@@ -1,0 +1,9 @@
+test> show dbs  /*displays all existing dbs*/
+
+//to go on a specific db:
+syntax: use <db>
+//ex: 
+use flower_shop
+/*switched to flower_shop
+flower_shop >
+ will appear */
